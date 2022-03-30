@@ -1,4 +1,4 @@
-# Get instance
+# Get instance try also https://adw0rd.github.io/instagrapi/
 import instaloader
 
 L = instaloader.Instaloader()
