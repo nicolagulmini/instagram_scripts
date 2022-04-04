@@ -1,25 +1,24 @@
-# Get instance try also https://adw0rd.github.io/instagrapi/
-import instaloader
+!pip install instagrapi
 
-L = instaloader.Instaloader()
+from instagrapi import Client
 
-# Login or load session
-username = "username"
-password = "password"
-L.login(username, password)
+USERNAME = None
+PASSWORD = None
 
-# Obtain profile metadata
-my_profile = instaloader.Profile.from_username(L.context, username)
+cl = Client()
+cl.login(USERNAME, PASSWORD)
 
-'''
-# Print list of followees
-follow_list = []
-count = 0
-for follower in profile.get_followers():
-    print(follower.username)
-'''
+user_id = cl.user_info(cl.user_id).pk
 
-for story in L.get_stories():
-    if story.owner_id == my_profile.userid:
-        for item in story.get_items():
-            print(item)
+followers = cl.user_followers(cl.user_id)
+followers_usernames = []
+for el in followers:
+    followers_usernames.append(followers[el].username)
+
+stories = cl.user_stories(user_id)
+i = 1
+for story in stories:
+    print('Story number', i, ':')
+    for user in cl.story_viewers(story.pk):
+        if user.username is not in followers_usernames: print(user.username)
+    print()
