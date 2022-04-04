@@ -20,5 +20,5 @@ i = 1
 for story in stories:
     print('Story number', i, ':')
     for user in cl.story_viewers(story.pk):
-        if user.username is not in followers_usernames: print(user.username)
+        if user.username not in followers_usernames: print(user.username)
     print()
