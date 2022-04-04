@@ -1,4 +1,4 @@
-!pip install instagrapi
+#!pip install instagrapi
 
 from instagrapi import Client
 
