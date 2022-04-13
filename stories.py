@@ -21,19 +21,20 @@ followers = cl.user_followers(cl.user_id)
 followers_usernames = []
 for el in followers:
     followers_usernames.append(followers[el].username)
-print('Done. You have', len(followers_usernames), ' followers right now.')
+print('Done. You have', len(followers_usernames), ' followers at the moment.')
 
 print('Start to analyze the insta stories:')
 stories = cl.user_stories(user_id)
 if len(stories) == 0: print('You have no stories.')
-i = 1
-for story in stories:
-    print('Story number', i, ', these are the followers who are spying you:')
-    cond = True
-    for user in cl.story_viewers(story.pk):
-        if user.username not in followers_usernames: 
-            print(user.username)
-            cond = False
-    if cond: 
-        print('Nobody is spying you... for now.')
-    print()
+else:
+    i = 1
+    for story in stories:
+        print('Story number', i, ', these are the followers who are spying you:')
+        cond = True
+        for user in cl.story_viewers(story.pk):
+            if user.username not in followers_usernames: 
+                print(user.username)
+                cond = False
+        if cond: 
+            print('Nobody is spying you... for now.')
+        print()
