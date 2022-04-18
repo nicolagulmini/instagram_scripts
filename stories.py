@@ -22,7 +22,7 @@ followers = cl.user_followers(cl.user_id)
 followers_usernames = []
 for el in followers:
     followers_usernames.append(followers[el].username)
-print('Done. You have', len(followers_usernames), ' followers at the moment.')
+print('Done. You have', len(followers_usernames), 'followers at the moment.')
 
 print('Start to analyze the insta stories:')
 stories = cl.user_stories(user_id)
@@ -42,3 +42,4 @@ else:
         if cond: 
             print('Nobody is spying you... for now.')
         print()
+        i += 1
