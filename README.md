@@ -1,3 +1,5 @@
+*Update Nov 2022: this script may not work due to recent Instagram updates.*
+
 Most of the apps and websites that promise you to track your Instagram activity has 2 main problems:
 - you have to pay for these services;
 - they don't provide stories analytics.
